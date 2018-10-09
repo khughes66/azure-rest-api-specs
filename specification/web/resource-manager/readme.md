@@ -283,6 +283,7 @@ swagger-to-sdk:
   - repo: azure-sdk-for-java
   - repo: azure-sdk-for-go
   - repo: azure-sdk-for-node
+  - repo: azure-sdk-for-js
   - repo: azure-sdk-for-ruby
     after_scripts:
       - bundle install && rake arm:regen_all_profiles['azure_mgmt_web']
@@ -462,4 +463,21 @@ java:
   output-folder: $(azure-libraries-for-java-folder)/appservice/resource-manager/v2016_09_01
 regenerate-manager: true
 generate-interface: true
+```
+
+### Tag: package-2018-03-01-hybrid
+
+These settings apply only when `--tag=package-2018-03-01-hybrid` is specified on the command line.
+Creating this tag to pick proper resources from the hybrid profile for csharp code generation.
+
+``` yaml $(tag) == 'package-2018-03-01-hybrid'
+input-file:
+- Microsoft.Web/stable/2016-03-01/Certificates.json
+- Microsoft.Web/stable/2016-03-01/CommonDefinitions.json
+- Microsoft.Web/stable/2016-08-01/WebApps.json
+- Microsoft.Web/stable/2016-03-01/ResourceProvider.json
+- Microsoft.Web/stable/2016-03-01/Provider.json
+- Microsoft.Web/stable/2016-03-01/Recommendations.json
+- Microsoft.Web/stable/2016-09-01/AppServiceEnvironments.json
+- Microsoft.Web/stable/2016-09-01/AppServicePlans.json
 ```
